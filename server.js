@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
 
-
-app.get('/', function(req, res){
-  res.send('hello world');
+app.get("/", function (request, response) {
+  response.sendFile(__dirname + '/views/index.html');
 });
 
-app.listen(3030, () => {
-    console.log('Server running on port 3030');
+
+const listener = app.listen(process.env.PORT, () => {
+  console.log(`App is listening on port ${listener.address().port}`);
 });
